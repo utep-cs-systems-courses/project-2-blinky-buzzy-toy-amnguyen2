@@ -3,6 +3,9 @@
 #include "led.h"
 
 char sw1_state_down, sw1_state_changed; /* effectively boolean */
+char sw2_state_down, sw2_state_changed;
+char sw3_state_down, sw3_state_changed;
+char sw4_state_down, sw4_state_changed;
 
 static char switch_update_interrupt_sense() {
   char p2val = P2IN;
@@ -23,8 +26,17 @@ void switch_init() {            /* setup switch */
 
 void switch_interrupt_handler() {
   char p2val = switch_update_interrupt_sense();
+  
   sw1_state_down = (p2val & SW1) ? 0 : 1; /* 0 when SW1 is up */
+  sw2_state_down = (p2val & SW2) ? 0 : 1;
+  sw3_state_down = (p2val & SW3) ? 0 : 1;
+  sw4_state_down = (p2val & SW4) ? 0 : 1;
+  
+  sw1_state_changed = 1;
   sw2_state_changed = 1;
+  sw3_state_changed = 1;
+  sw4_state_changed = 1;
+  
   led_update();
 }
 
