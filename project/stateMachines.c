@@ -10,7 +10,6 @@ static char new_green_on;
 
 static char f = 0; // for dimming functionality. is the led being flashed right now?
 
-
 void sm_update_led()
 {
   char dimness = 5; // higher dimness = lower brightness
