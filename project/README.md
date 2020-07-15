@@ -18,7 +18,7 @@ To clean any unnecessary or temporary files from the project directory:
 The toy I created uses a state machine. The state machine begins at state 0. 
 Pressing the first 3 buttons cause the state machine to advance to any of the 3 states, 
 respective to each of the buttons. 
-Holding down the fourth button will advance the state machine automatically. From state 0, to 1,
+Holding down the fourth button will advance the state machine automatically from state 0, to 1,
 to 2, to 3, and back to state 0.
 
 0. Starting State
