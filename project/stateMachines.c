@@ -10,17 +10,6 @@ static char new_green_on;
 
 static char f = 0; // for dimming functionality. is the led being flashed right now?
 
-static int beat = 0; // current beat in song
-const int D4 = 6810; // musical notes 
-const int E4 = 6067;
-const int F4 = 5726;
-const int G4 = 5102;
-const int A4 = 4545;
-const int B4 = 4049;
-const int C5 = 3822;
-const int D5 = 3405;
-const int E5 = 3033;
-
 
 void sm_update_led()
 {
@@ -64,30 +53,16 @@ void sm_update_buzzer()
     buzzer_set_period(0); // silent
     break;
   case 1: // state 1
-    buzzer_set_period(F4);
+    play_song();
+    state = 2; // after song is played, auto transition to state 2 
     break;
   case 2: // state 2
-    buzzer_set_period(A4);
+    buzzer_set_period(0); // silent
     break;
   case 3: // state 3
-    buzzer_set_period(B4);
+    buzzer_set_period(7644); // C4 note
     break;
   }
-}
-
-void sm_play_song()
-{
-  // F,A,B,B,F,A,B,B,F,A,B,
-  // E,D,D,B,C,B,G,E,E,D,E,G,E,E
-  int song[24] = {F4, A4, B4, B4, F4, A4, B4, B4, F4, A4, B4,
-		E5, D5, D5, B4, C5, B4, G4, E4, E4, D4, E4, G4, E4};
-
-  while (beat < 24) {
-    buzzer_set_period(song[beat]);
-    __delay_cycles(20000);
-    beat++;
-  }
- 
   return;
 }
 
