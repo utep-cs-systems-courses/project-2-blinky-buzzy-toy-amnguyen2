@@ -13,7 +13,7 @@ static char f = 0; // for dimming functionality. is the led being flashed right 
 
 void sm_update_led()
 {
-  char dimness = 8; // higher dimness = lower brightness
+  char dimness = 5; // higher dimness = lower brightness
   f++; // f iterates from 0 to 'dimness'
   if (f > dimness) f = 0; // reset f back to 0
   
@@ -31,8 +31,10 @@ void sm_update_led()
     new_green_on = 0;
     break;
   case 3:
+    // dim both lights
     new_red_on = (f == 0);
     new_green_on = (f == 0);
+    break;
   }
 
   if (red_on != new_red_on) {
