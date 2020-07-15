@@ -28,13 +28,15 @@ to 2, to 3, and back to state 0.
    - Must hold SWITCH 4 to advance to this state.
 1. State 1
    - The GREEN LED is BRIGHT.
-   - The BUZZER plays note F4.
+   - The BUZZER plays a song, the user is unable to interrupt it.
+   - After the song is played, the machine auto transitions to STATE 2.
    - Must use SWITCH 1 or hold SWITCH 4 to advance to this state.   
 2. State 2
    - The RED LED is BRIGHT.
-   - The BUZZER plays note A4.
+   - The BUZZER is OFF.
+   - This state is transitioned to automatically after STATE 1.
    - Must use SWITCH 2 or hold SWITCH 4 to advance to this state.
 3. State 3
    - Both the RED and GREEN LEDs are DIM.
-   - The BUZZER plays note B4.
+   - The BUZZER plays note C4.
    - Must use SWITCH 3 or hold SWITCH 4 to advance to this state.
