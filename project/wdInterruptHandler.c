@@ -8,8 +8,8 @@ void __interrupt_vec(WDT_VECTOR) WDT() { /* 250 interrupts/sec */
     state_advance();
     blink_count = 0;
   }
-  
+
   sm_update_led();
-  sm_update_buzzer();
   led_update();
+  sm_update_buzzer();
 }
